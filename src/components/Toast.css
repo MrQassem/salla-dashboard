@@ -1,0 +1,123 @@
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  z-index: 1001;
+  min-width: 300px;
+  animation: slideInRight 0.3s ease-out, slideOutRight 0.3s ease-in 3.7s;
+  animation-fill-mode: forwards;
+}
+
+[dir="rtl"] .toast {
+  right: auto;
+  left: 2rem;
+  animation: slideInLeft 0.3s ease-out, slideOutLeft 0.3s ease-in 3.7s;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-400px);
+    opacity: 0;
+  }
+}
+
+.toast-success {
+  border-left: 4px solid #10b981;
+}
+
+[dir="rtl"] .toast-success {
+  border-left: 1px solid var(--border);
+  border-right: 4px solid #10b981;
+}
+
+.toast-error {
+  border-left: 4px solid #ef4444;
+}
+
+[dir="rtl"] .toast-error {
+  border-left: 1px solid var(--border);
+  border-right: 4px solid #ef4444;
+}
+
+.toast-warning {
+  border-left: 4px solid #f59e0b;
+}
+
+[dir="rtl"] .toast-warning {
+  border-left: 1px solid var(--border);
+  border-right: 4px solid #f59e0b;
+}
+
+.toast-info {
+  border-left: 4px solid #3b82f6;
+}
+
+[dir="rtl"] .toast-info {
+  border-left: 1px solid var(--border);
+  border-right: 4px solid #3b82f6;
+}
+
+.toast span {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .toast {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    min-width: auto;
+  }
+
+  [dir="rtl"] .toast {
+    left: 1rem;
+    right: 1rem;
+  }
+}
